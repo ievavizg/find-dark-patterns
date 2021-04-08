@@ -2,9 +2,29 @@
 <html>
   <head>
     <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="input.css">
+    <link rel="stylesheet" href="textArea.css">
+    <link rel="stylesheet" href="div.css">
   </head>
   <body>
-    <button id="changeColor"></button>
-    <script src="popup.js"></script>
+    <button id="patternsButton">Check page</button>
+    <div><b>Total</b> dark patterns found: <input class="error" id="patternsFound" disabled/></div>
+    <div>Types of dark patterns that were found: <textarea id="patternsFoundTypes" disabled> </textarea></div>
+
   </body>
+  <script src="popup.js"></script>
+  <!-- <script>
+    $(document).ready(function() {
+      var tempvar = 0;
+      $("#patternsFound").on("change", function() {
+        tempvar = $("#patternsFound").val();
+        if (tempvar == 0) {
+          $("#patternsFound").addClass('safe').removeClass('error');
+        } else {
+          $("#patternsFound").val = 0;
+          $("#patternsFound").addClass('error').removeClass('safe');
+        }
+      })
+    });
+</script> -->
 </html>

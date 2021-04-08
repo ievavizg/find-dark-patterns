@@ -2,9 +2,13 @@
     "patterns" : [
         {
             "id": 1,
-            "name": "Per savaitę prekė peržiūrėta",
-            "type:": "TIPAS"
-    }
-
+            "regex": "Paskutin.* kart.* u.*sakyta prie.*",
+            "type": "TIPAS"
+        },
+        {
+            "id": 2,
+            "regex": "Per savait.* prek.* per.*i.*r.*ta",
+            "type": "TIPAS"
+        }
 ]
 }
