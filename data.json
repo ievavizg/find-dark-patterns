@@ -9,6 +9,16 @@
             "id": 2,
             "regex": "Per savait.* prek.* per.*i.*r.*ta",
             "type": "TIPAS"
+        },
+        {
+            "id":3,
+            "regex": "Ka.*kas k.* tik nupirko",
+            "type":"TIPAS"
+        },
+        {
+            "id":4,
+            "regex":"Someone just purchased",
+            "type":"TIPAS"
         }
 ]
 }

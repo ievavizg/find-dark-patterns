@@ -1,54 +1,98 @@
 // const text = document.querySelectorAll('h1, h2, h3, h4, h5, p, li, td, caption, span, a, div');
 
+const text = document.querySelectorAll('h1, h2, h3, h4, h5, p, td, caption, span, a');
+
 // const text = document.querySelectorAll('body');
 
 let found = false;
 
-const url = chrome.runtime.getURL('./data.json');
-
 let tabUrl = '';
 
-fetch(url)
-    .then((response) => response.json())
-    .then((json) => {
-        for (const [key, value] of Object.entries(json.patterns)) {
-            // console.log(`${key}: ${value.name}`);
-          }
-    });
-
 chrome.runtime.onMessage.addListener(function (response, sendResponse) {
-    console.log(response);
-    console.log('gjesgfjk');
         if(response) {
             // // MAYBE CHECK LOCAL STORAGE HERE AS WELL ?
             chrome.storage.local.get('url', function(data){
-                if(tabUrl != data) {
-                    console.log(tabUrl);
-                    console.log(data);
-                    console.log('how??')
-                    tabUrl = data;
-                } else {
-                    console.log('rlyy??')
+                if(data.url.match('https://www.google.*?')){
+                    for(let i=0; i< text.length; i++) {
+                        const googleAds = document.querySelectorAll('.jpu5Q.VqFMTc.p8AiDd');
+                        for(let i=0; i< googleAds.length; i++) {
+                            googleAds[i].style.color = "green";
+                        }
+                    }
                 }
+                // if(tabUrl != data) {
+                //     // console.log(tabUrl);
+                //     // console.log(data);
+                //     // console.log('how??')
+                //     tabUrl = data;
+                // } else {
+                //     // console.log('rlyy??')
+                // }
 
                 // console.log(tabUrl)
                 // console.log(url)
             });
 
             setIconText(false);
-            console.log('here');
         }
 });
 
 window.onload=function(){
-    const text = document.body.innerText;
 
-    console.log('yyy')
+    chrome.storage.local.get('url', function(data){
+        if(data.url.match('https://www.google.*?')){
+            for(let i=0; i< text.length; i++) {
+                const googleAds = document.querySelectorAll('.jpu5Q.VqFMTc.p8AiDd');
+                for(let i=0; i< googleAds.length; i++) {
+                    googleAds[i].style.color = "green";
+                }
+            }
+        } else {
+
+        }
+    });
+
+    for(let i=0; i< text.length; i++) {
+
+        const url = chrome.runtime.getURL('./data.json');
+
+        fetch(url)
+        .then((response) => response.json())
+        .then((json) => {
+            for (const [key, value] of Object.entries(json.patterns)) {
+                if(text[i].innerHTML.match(value.regex)) {
+                    text[i].style.border = "thick solid #0000FF";
+                    setIconText(true);
+                  }
+            }
+        });
+
+        const timers = document.querySelectorAll('.time, .countdown');
+        console.log(document)
+        for(let i=0; i< timers.length; i++) {
+            timers[i].style.border = "thick solid #0000FF";
+        }
     
-    if(text.includes('Per savaitę prekė peržiūrėta')) {
-        console.log('whyy')
-        setIconText(true);
+        const infoBadges = document.querySelectorAll('.info-badge'); 
+        for(let i=0; i< infoBadges.length; i++) {
+           infoBadges[i].style.border = "thick solid #0000FF";
+        // infoBadges[i].style.display = 'none';
+        }
+
+        // if(text[i].innerHTML.includes('Per savaitę prekė peržiūrėta')) {
+        //     text[i].style.border = "thick solid #0000FF";
+        //     setIconText(true);
+        // }
+        // if (text[i].innerHTML.includes('šiuo metu domisi')) {
+        //     text[i].style.border = "thick solid #0000FF";
+        //     setIconText(true);
+        // }
+        // if (text[i].innerHTML.includes('Paskutinį kartą užsakyta prieš')) {
+        //     text[i].style.border = "thick solid #0000FF";
+        //     setIconText(true);
+        // }
     }
+    // console.log(timers);
 }
 
 

@@ -50,6 +50,8 @@
 //   });
 // }
 
+var query = { active: true, currentWindow: true };
+
 document.addEventListener('DOMContentLoaded', function () {
     var patternsButton = document.getElementById("patternsButton");
     chrome.storage.local.set({'patternsNumb':undefined}, function () {});
@@ -69,12 +71,25 @@ document.addEventListener('DOMContentLoaded', function () {
             const text = document.body.innerText;
             var types = [];
               for (const [key, value] of Object.entries(json.patterns)) {
-                //  console.log(`${key}: ${value.name}`);
                 if(text.match(value.regex)) {
                   types.push(value.type);
                   patternsWereFound++;
                 }
             }
+
+        const timers = document.querySelectorAll('.time', '.countdown');
+        if(timers.length > 0)
+        {
+          types.push('TIMER');
+          patternsWereFound++;
+        }
+
+        const infoBadges = document.querySelectorAll('.info-badge'); 
+        for(let i=0; i< infoBadges.length; i++) {
+          types.push('POPUP');
+          patternsWereFound++;
+        }
+
         chrome.storage.local.set({'patternsNumb':patternsWereFound}, function () {});
         chrome.storage.local.set({'patternsTypes':JSON.stringify(types)}, function () {});
         });
@@ -84,7 +99,13 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(function(){
         chrome.storage.local.get('patternsNumb', function (data) {
           if(data.patternsNumb) {
-            document.getElementById('patternsFound').value = data.patternsNumb;
+            console.log(Number(data.patternsNumb));
+            if(Number(data.patternsNumb) > 0) {
+              document.getElementById('patternsFound').value = data.patternsNumb;
+            }
+          } else {
+            console.log('here');
+            document.getElementById("content").innerHTML = "<div class=\"darkitem\"><div class=\"good\"><div class=\"message\"><span>Great news!</span>There aren’t any known dark patterns found here.</div></div></div>";
           }
         });
         chrome.storage.local.get('patternsTypes', function (data) {
@@ -98,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
       },200)
     }, false);
 });
-
 
 function setIconText (value) {
   chrome.runtime.sendMessage({
