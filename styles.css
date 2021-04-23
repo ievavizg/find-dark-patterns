@@ -4,18 +4,29 @@ button {
   outline: none;
   margin: 10px;
   border: none;
-  border-radius: 2px;
-  box-shadow: 0 2px #999;
+  border-radius: 5px;
   align-items: center;
+  background-color: #F1F1F1;
 }
 
 button.current {
-  box-shadow: 0 0 0 2px white,
-              0 0 0 4px black;
+  /* box-shadow: 0 0 0 2px white,
+              0 0 0 4px black; */
+}
+
+.centerWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.totalWrapper {
+  border: 2px solid #F1F1F1;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 button:hover {
-  background-color: yellow;
+  background-color: #eceaf7;
   cursor: pointer;
 }
 
@@ -35,6 +46,7 @@ input {
   border: none;
   font-size: 20px;
   width: fit-content;
+  background-color: white;
 }
 
 input.error {
@@ -47,6 +59,10 @@ input.safe {
 
 textarea {
   resize: none;
+}
+
+.green {
+  color: green;
 }
 
 

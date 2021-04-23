@@ -3,22 +3,22 @@
         {
             "id": 1,
             "regex": "Paskutin.* kart.* u.*sakyta prie.*",
-            "type": "TIPAS"
+            "type": "Urgency"
         },
         {
             "id": 2,
             "regex": "Per savait.* prek.* per.*i.*r.*ta",
-            "type": "TIPAS"
+            "type": "Urgency"
         },
         {
             "id":3,
             "regex": "Ka.*kas k.* tik nupirko",
-            "type":"TIPAS"
+            "type":"Urgency"
         },
         {
             "id":4,
             "regex":"Someone just purchased",
-            "type":"TIPAS"
+            "type":"Urgency"
         }
 ]
 }
