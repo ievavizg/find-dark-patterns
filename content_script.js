@@ -41,29 +41,30 @@ window.onload = function () {
     } else {
     }
   });
-
   for (let i = 0; i < text.length; i++) {
     const url = chrome.runtime.getURL("./data.json");
-
     fetch(url)
       .then((response) => response.json())
       .then((json) => {
         for (const [key, value] of Object.entries(json.patterns)) {
           if (text[i].innerHTML.match(value.regex)) {
-            text[i].style.border = "thick solid #0000FF";
+            text[i].style.border = "4px solid #726C94";
+            text[i].style.borderRadius = "5px";
             setIconText(true);
           }
         }
       });
-
     const timers = document.querySelectorAll(".time, .countdown");
     for (let i = 0; i < timers.length; i++) {
-      timers[i].style.border = "thick solid #0000FF";
+      timers[i].style.border = "4px solid #726C94";
+      text[i].style.borderRadius = "5px";
+      setIconText(true);
     }
-
     const infoBadges = document.querySelectorAll(".info-badge");
     for (let i = 0; i < infoBadges.length; i++) {
-      infoBadges[i].style.border = "thick solid #0000FF";
+      infoBadges[i].style.border = "4px solid #726C94";
+      text[i].style.borderRadius = "5px";
+      setIconText(true);
     }
   }
 };

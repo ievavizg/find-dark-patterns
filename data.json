@@ -1,24 +1,34 @@
 {
-    "patterns" : [
-        {
-            "id": 1,
-            "regex": "Paskutin.* kart.* u.*sakyta prie.*",
-            "type": "Urgency"
-        },
-        {
-            "id": 2,
-            "regex": "Per savait.* prek.* per.*i.*r.*ta",
-            "type": "Urgency"
-        },
-        {
-            "id":3,
-            "regex": "Ka.*kas k.* tik nupirko",
-            "type":"Urgency"
-        },
-        {
-            "id":4,
-            "regex":"Someone just purchased",
-            "type":"Urgency"
-        }
-]
-}
+    "patterns":[
+       {
+          "id":1,
+          "regex":"Paskutin.* kart.* u.*sakyta prie.*",
+          "type":"uzsakyta pries"
+       },
+       {
+          "id":2,
+          "regex":"Per savait.* prek.* per.*i.*r.*ta",
+          "type":"per sav"
+       },
+       {
+          "id":3,
+          "regex":"Ka.*kas k.* tik nupirko",
+          "type":"kazkas"
+       },
+       {
+          "id":4,
+          "regex":"Someone just purchased",
+          "type":"someone"
+       },
+       {
+          "id":5,
+          "regex":"Nenoriu praleisti pasi*lym*, kurie dovanoja laim*",
+          "type":"someone"
+       },
+       {
+         "id":6,
+         "regex":"Last order was made",
+         "type":"Last order"
+      }
+    ]
+ }

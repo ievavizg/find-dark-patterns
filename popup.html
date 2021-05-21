@@ -4,26 +4,13 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="centerWrapper"><button id="patternsButton"><b>CHECK PAGE</b></button></div>
-    <div class="totalWrapper"><b>Total</b> dark patterns found: <input class="error" id="patternsFound" disabled/></div>
-    <!-- <div><b>Total</b> dark patterns found: <input class="error" id="patternsFound" disabled/></div> -->
-    <div>Types of dark patterns that were found: <textarea id="patternsFoundTypes" disabled> </textarea></div>
-    <div id="content"></div>
-    <div id="link"><a href='https://github.com/ievavizg/find-dark-patterns/blob/main/README.md'>Read more about dark patterns and our extension</a></div>
-  </body>
+    <div class="popupWrapper"> 
+      <div class="centerWrapper"><button id="patternsButton"><b>CHECK PAGE</b></button></div>
+      <div id="patternsFound"></div>
+      <div id="patternsTypes"></div>
+      <div id="content"></div>
+      <div id="link"><a href='https://find-dark-patterns.herokuapp.com/'>Read more about dark patterns and our extension</a></div>
+      <div id="link"><a href='https://github.com/ievavizg/find-dark-patterns/blob/main/README.md'>Register Dark Pattern</a></div>
+    </div>  </body>
   <script src="popup.js"></script>
-  <!-- <script>
-    $(document).ready(function() {
-      var tempvar = 0;
-      $("#patternsFound").on("change", function() {
-        tempvar = $("#patternsFound").val();
-        if (tempvar == 0) {
-          $("#patternsFound").addClass('safe').removeClass('error');
-        } else {
-          $("#patternsFound").val = 0;
-          $("#patternsFound").addClass('error').removeClass('safe');
-        }
-      })
-    });
-</script> -->
 </html>

@@ -9,11 +9,6 @@ button {
   background-color: #F1F1F1;
 }
 
-button.current {
-  /* box-shadow: 0 0 0 2px white,
-              0 0 0 4px black; */
-}
-
 .centerWrapper {
   display: flex;
   justify-content: center;
@@ -23,6 +18,8 @@ button.current {
   border: 2px solid #F1F1F1;
   border-radius: 5px;
   padding: 5px;
+  width: 19rem;
+  margin-bottom: 1rem;
 }
 
 button:hover {
@@ -47,25 +44,41 @@ input {
   font-size: 20px;
   width: fit-content;
   background-color: white;
+  width: 4rem;
 }
 
 input.error {
   color: red;
+  float: left;
+}
+
+.inline-block-child {
+  display: inline-block;
+}
+
+.totalText {
+vertical-align: top;
+margin-top: 1rem;
 }
 
 input.safe {
-  color: green;
+  color: green
 }
 
 textarea {
   resize: none;
+  background-color: white;
+  border: none;
 }
 
 .green {
   color: green;
+  margin-bottom: 0.5rem;
 }
 
-
+.popupWrapper {
+  width: 20rem;
+}
 
 .plugin {
   width: 500px;
