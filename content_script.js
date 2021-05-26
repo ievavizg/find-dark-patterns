@@ -1,5 +1,5 @@
 const text = document.querySelectorAll(
-  "h1, h2, h3, h4, h5, p, td, caption, span, a"
+  "h2, h3, h4, h5, label, p"
 );
 
 let found = false;
@@ -9,7 +9,6 @@ let tabUrl = "";
 chrome.runtime.onMessage.addListener(function (response, sendResponse) {
   if (response) {
     chrome.storage.local.get("highlightAds", function (data) {
-      console.log(data.highlightAds);
       if (data.highlightAds) {
         chrome.storage.local.get("url", function (data) {
           if (data.url.match("https://www.google.*?")) {
@@ -54,7 +53,7 @@ window.onload = function () {
           }
         }
       });
-    const timers = document.querySelectorAll(".time, .countdown");
+    const timers = document.querySelectorAll(".time-wrap, .countdown, .clock");
     for (let i = 0; i < timers.length; i++) {
       timers[i].style.border = "4px solid #726C94";
       text[i].style.borderRadius = "5px";

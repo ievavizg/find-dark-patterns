@@ -26,14 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
               for (const [key, value] of Object.entries(json.patterns)) {
                 if (text.match(value.regex)) {
                   types.push(value.type);
-                  console.log(value.regex)
                   patternsWereFound++;
                 }
               }
 
               const timers = document.querySelectorAll(".time", ".countdown");
               if (timers.length > 0) {
-                types.push("TIMER");
+                types.push("Countdown Timer");
                 patternsWereFound++;
               }
 
@@ -47,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 { patternsNumb: patternsWereFound },
                 function () {}
               );
-              console.log(types)
               chrome.storage.local.set(
                 { patternsTypes: JSON.stringify(types) },
                 function () {}

@@ -2,33 +2,43 @@
     "patterns":[
        {
           "id":1,
-          "regex":"Paskutin.* kart.* u.*sakyta prie.*",
-          "type":"uzsakyta pries"
+          "regex":"Paskutin.* kart.* u.*sakyta",
+          "type":"Activity Message"
        },
        {
           "id":2,
           "regex":"Per savait.* prek.* per.*i.*r.*ta",
-          "type":"per sav"
+          "type":"Activity Message"
        },
        {
           "id":3,
           "regex":"Ka.*kas k.* tik nupirko",
-          "type":"kazkas"
+          "type":"Activity Message"
        },
        {
           "id":4,
           "regex":"Someone just purchased",
-          "type":"someone"
+          "type":"Activity Message"
        },
        {
           "id":5,
           "regex":"Nenoriu praleisti pasi*lym*, kurie dovanoja laim*",
-          "type":"someone"
+          "type":"Confirmshaming"
        },
        {
          "id":6,
          "regex":"Last order was made",
-         "type":"Last order"
+         "type":"Activity Message"
+      },
+      {
+         "id": 7,
+         "regex": "Pana.*iomis prek.*mis .*iuo metu domisi",
+         "type":"Activity Message"
+      },
+      {
+         "id": 9,
+         "regex": "Per paskutines [0-9]+ dienas dom.*josi",
+         "type":"Activity Message"
       }
     ]
  }

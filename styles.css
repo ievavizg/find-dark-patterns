@@ -69,6 +69,7 @@ textarea {
   resize: none;
   background-color: white;
   border: none;
+  height: 10rem;
 }
 
 .green {
